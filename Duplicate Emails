@@ -1,0 +1,24 @@
+Write an SQL query to report all the duplicate emails.
+
+Return the result table in any order.
+
+Table: Person
+
++-------------+---------+
+| Column Name | Type    |
++-------------+---------+
+| id          | int     |
+| email       | varchar |
++-------------+---------+
+id is the primary key column for this table.
+Each row of this table contains an email. The emails will not contain uppercase letters.
+
+
+solutions:
+   
+      select Email
+      from
+            (select email, count(email) as n
+            from person
+            group by email) as temp
+      where n > 1
