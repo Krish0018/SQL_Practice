@@ -16,7 +16,7 @@ Return the result table in any order.
 
 Solutions:
 
-          select num as ConsecutiveNums
+          select distinct(num) as ConsecutiveNums
           from (
                   select num, 
                   lead(num) over(order by id) as ld,
